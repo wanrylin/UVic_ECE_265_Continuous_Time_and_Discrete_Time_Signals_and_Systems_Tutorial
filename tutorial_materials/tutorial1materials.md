@@ -260,19 +260,25 @@ The left side has angle $\arg j=\pi/2$. The right side gives $\pi/4-(-\pi/4)=\pi
 
 Multiply first, then conjugate (reverse the angle):
 
-$$
-(z_{1}z_{2})^{*}=(r_{1}r_{2}e^{j(\theta_{1}+\theta_{2})})^{*}=r_{1}r_{2}e^{-j(\theta_{1}+\theta_{2})}.
-$$
+```math
+(z_{1}z_{2})^{\ast}
+=(r_{1}r_{2}e^{j(\theta_{1}+\theta_{2})})^{\ast}
+=r_{1}r_{2}e^{-j(\theta_{1}+\theta_{2})}.
+```
 
 Conjugate first, then multiply:
 
-$$
-z_{1}^{*}z_{2}^{*}
+```math
+z_{1}^{\ast}z_{2}^{\ast}
 =(r_{1}e^{-j\theta_{1}})(r_{2}e^{-j\theta_{2}})
 =r_{1}r_{2}e^{-j(\theta_{1}+\theta_{2})}.
-$$
+```
 
-Both routes give the same result: $\boxed{(z_1z_2)^*=z_1^*z_2^*}$.
+Both routes give the same result:
+
+```math
+\boxed{(z_{1}z_{2})^{\ast}=z_{1}^{\ast}z_{2}^{\ast}}
+```
 
 ---
 
@@ -286,12 +292,12 @@ so $(z_1z_2)^*=(3+j)^*=3-j$.
 
 Now conjugate each number first: $z_1^*=1-j$, $z_2^*=2+j$.
 
-$$
-z_{1}^{*}z_{2}^{*}
+```math
+z_{1}^{\ast}z_{2}^{\ast}
 =(1-j)(2+j)
 =2+j-2j-j^{2}
 =3-j.
-$$
+```
 
 Both calculations give $3-j$, as the general proof predicts.
 
