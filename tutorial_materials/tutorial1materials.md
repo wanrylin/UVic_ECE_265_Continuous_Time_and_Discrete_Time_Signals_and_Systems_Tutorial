@@ -1,27 +1,3 @@
----
-marp: true
-theme: default
-size: 16:9
-paginate: true
-style: |
-  section {
-    font-size: 30px;
-    padding: 48px 60px;
-  }
-  h1 {
-    font-size: 52px;
-  }
-  h2 {
-    font-size: 40px;
-  }
-  li {
-    margin-bottom: 14px;
-  }
-  section pre {
-    font-size: 26px;
-  }
----
-
 # ECE265 Tutorial 1
 
 ## Welcome to T02
