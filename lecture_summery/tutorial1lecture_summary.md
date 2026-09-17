@@ -109,7 +109,7 @@ x_{\mathrm e}(\xi)=\tfrac{1}{2}\bigl[x(\xi)+x(-\xi)\bigr],
 x_{\mathrm o}(\xi)=\tfrac{1}{2}\bigl[x(\xi)-x(-\xi)\bigr].
 $$
 
-These are often written $\operatorname{Even}\{x\}$ and $\operatorname{Odd}\{x\}$.
+These are often written $\mathrm{Even}\{x\}$ and $\mathrm{Odd}\{x\}$.
 
 Quick check: if $x(t)=t+2$, then $x_{\mathrm e}(t)=2$ and $x_{\mathrm o}(t)=t$. The same formulas work for sequences after replacing $t$ by $n$.
 
@@ -142,19 +142,19 @@ The period is not unique: if $T$ (or $N$) is a period, so is $kT$ (or $kN$) for 
 
 ### Least common multiple (LCM)
 
-The **LCM** of two nonzero reals $a$ and $b$, written $\operatorname{lcm}(a,b)$, is the smallest positive real that is an integer multiple of both $|a|$ and $|b|$. It exists **if and only if** $a/b$ is rational, and it is then unique. Think of two clocks started at $t=0$ that chime every $a$ and every $b$: the LCM is the first moment they chime together.
+The **LCM** of two nonzero reals $a$ and $b$, written $\mathrm{lcm}(a,b)$, is the smallest positive real that is an integer multiple of both $|a|$ and $|b|$. It exists **if and only if** $a/b$ is rational, and it is then unique. Think of two clocks started at $t=0$ that chime every $a$ and every $b$: the LCM is the first moment they chime together.
 
 To compute it, write $|a|/|b|=p/q$ with $p,q$ coprime positive integers; then
 
 $$
-\operatorname{lcm}(a,b)=q\,|a|=p\,|b|.
+\mathrm{lcm}(a,b)=q\,|a|=p\,|b|.
 $$
 
 For two nonzero integers the ratio is automatically rational, so the LCM always exists and is a positive integer.
 
 ### Adding periodic signals
 
-**Theorem.** For periodic $x_1,x_2$ with fundamental periods $\Xi_1,\Xi_2$, the sum $y=x_1+x_2$ is periodic **if and only if** $\Xi=\operatorname{lcm}(\Xi_1,\Xi_2)$ exists, in which case $\Xi$ is a period of $y$.
+**Theorem.** For periodic $x_1,x_2$ with fundamental periods $\Xi_1,\Xi_2$, the sum $y=x_1+x_2$ is periodic **if and only if** $\Xi=\mathrm{lcm}(\Xi_1,\Xi_2)$ exists, in which case $\Xi$ is a period of $y$.
 
 - **CT:** two positive reals need not have an LCM, so the sum of two periodic functions is not necessarily periodic. If $T_1/T_2$ is irrational, the sum is aperiodic.
 - **DT:** two positive integers always have an LCM, so the sum of two periodic sequences is always periodic.
