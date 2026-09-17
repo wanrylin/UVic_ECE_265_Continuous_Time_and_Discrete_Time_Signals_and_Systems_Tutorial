@@ -261,9 +261,7 @@ The left side has angle $\arg j=\pi/2$. The right side gives $\pi/4-(-\pi/4)=\pi
 Multiply first, then conjugate (reverse the angle):
 
 $$
-(z_{1}z_{2})^{*}
-=\left(r_{1}r_{2}e^{j(\theta_{1}+\theta_{2})}\right)^{*}
-=r_{1}r_{2}e^{-j(\theta_{1}+\theta_{2})}.
+(z_{1}z_{2})^{*}=(r_{1}r_{2}e^{j(\theta_{1}+\theta_{2})})^{*}=r_{1}r_{2}e^{-j(\theta_{1}+\theta_{2})}.
 $$
 
 Conjugate first, then multiply:
