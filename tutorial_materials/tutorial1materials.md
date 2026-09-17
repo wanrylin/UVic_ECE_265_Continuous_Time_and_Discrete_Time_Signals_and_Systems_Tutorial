@@ -1,3 +1,27 @@
+---
+marp: true
+theme: default
+size: 16:9
+paginate: true
+style: |
+  section {
+    font-size: 30px;
+    padding: 48px 60px;
+  }
+  h1 {
+    font-size: 52px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  li {
+    margin-bottom: 14px;
+  }
+  section pre {
+    font-size: 26px;
+  }
+---
+
 # ECE265 Tutorial 1
 
 ## Welcome to T02
@@ -22,7 +46,7 @@ Ruilin Wang · Thursday 13:00–13:50 · ELW B238
 
 ## A sub-THz OFDM communication system
 
-![width:1100px](assets/subthz_ofdm_system.png)
+![width:1100px](figs/subthz_ofdm_system.png)
 
 ---
 
@@ -144,7 +168,7 @@ $$r=\sqrt{x^2+y^2}=\sqrt{(-\sqrt3)^2+1^2}=\sqrt{3+1}=2.$$
 
 The reference angle is $\arctan(1/\sqrt3)=\pi/6$. Since $x<0$ and $y>0$, the point is in Quadrant II, so $\theta=\pi-\pi/6=5\pi/6$.
 
-$$\boxed{z=2e^{j5\pi/6}},\qquad \boxed{\operatorname{Arg}z=5\pi/6}.$$
+$$\boxed{z=2e^{j5\pi/6}},\qquad \boxed{\mathrm{Arg}\,z=5\pi/6}.$$
 
 Check: $2[\cos(5\pi/6)+j\sin(5\pi/6)]=2(-\sqrt3/2+j/2)=-\sqrt3+j$.
 
@@ -154,7 +178,7 @@ For the plot, draw an arrow from the origin to $(-\sqrt3,1)$ and label its lengt
 
 ### A.2(a): Answer - Plot
 
-![width:850px](assets/a2a_complex_plane.svg)
+![width:850px](figs/a2a_complex_plane.png)
 
 ---
 
