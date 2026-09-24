@@ -33,7 +33,7 @@ $$
 Order can change the result. For CT differentiation $D$ and time scaling $(K_ax)(t)=x(at)$, the chain rule gives
 
 $$
-(DK_ax)(t)=a\,(Dx)(at),\qquad (K_aDx)(t)=(Dx)(at).
+(DK_ax)(t)=a\thinspace(Dx)(at),\qquad (K_aDx)(t)=(Dx)(at).
 $$
 
 Here $(Dx)(at)=x'(at)$: differentiate $x$ first, **then** evaluate at $at$.
@@ -130,7 +130,7 @@ Use the definition on the **whole domain**. An odd signal has $x(0)=0$; a right-
 The CT and DT unit steps obey the same boundary rule:
 
 $$
-u(\xi)=\begin{cases}0,&\xi<0,\\1,&\xi\ge0.\end{cases}
+u(\xi)=\begin{cases}0,&\xi<0,\cr 1,&\xi\ge0.\end{cases}
 \qquad\text{In particular, }u(0)=1.
 $$
 
@@ -151,9 +151,9 @@ Because $u(0)=1$, the point $\xi=a$ gets $f_1$. If a DT problem puts $n=a$ in th
 **CT Dirac delta:** it is a generalized function; use its integral property.
 
 $$
-\int_{-\infty}^{\infty}x(t)\delta(t-t_0)\,dt=x(t_0),
+\int_{-\infty}^{\infty}x(t)\delta(t-t_0)\thinspace dt=x(t_0),
 \qquad
-\delta(at-b)=\frac{1}{|a|}\delta\!\left(t-\frac{b}{a}\right),\ a\ne0.
+\delta(at-b)=\frac{1}{|a|}\delta\negthinspace\left(t-\frac{b}{a}\right),\ a\ne0.
 $$
 
 **DT Kronecker delta:** an ordinary sequence, $1$ at $n=0$ and $0$ elsewhere, with $\sum_{n}x(n)\delta(n-n_0)=x(n_0)$.
@@ -232,7 +232,7 @@ $$
 
 For each of the mathematical expressions below, state whether the expression is valid, and if it is, what type of mathematical object the expression represents (e.g., scalar, function, sequence, or system operator), and fully evaluate the expression.
 
-**(h)** $G_1\{g_2\}$;
+**(h)** $G_1\lbrace g_2\rbrace$;
 
 ---
 
@@ -253,13 +253,13 @@ $$
 (G_1g)(n)=(K_3g)(n)=g(3n),\qquad n\in\mathbb Z.
 $$
 
-The expression $G_1\{g\}$ denotes the **whole output sequence**; the braces only mark the operator's input, so $G_1\{g\}$ means the same as $G_1g$. The expression $(G_1g)(n)$ denotes its value at the particular index $n$.
+The expression $G_1\lbrace g\rbrace$ denotes the **whole output sequence**; the braces only mark the operator's input, so $G_1\lbrace g\rbrace$ means the same as $G_1g$. The expression $(G_1g)(n)$ denotes its value at the particular index $n$.
 
 ---
 
 ### 2.4(h): Answer
 
-1. $g_2\in G$ because $g_2:\mathbb Z\to\mathbb R$. Therefore $G_1\{g_2\}$ is **valid**: the input lies in the domain of $G_1$.
+1. $g_2\in G$ because $g_2:\mathbb Z\to\mathbb R$. Therefore $G_1\lbrace g_2\rbrace$ is **valid**: the input lies in the domain of $G_1$.
 2. $G_1:G\to G$, so the result is a **sequence**, not one scalar value.
 3. Substitute the definition of $G_1$ and then $g_2(\xi)=\xi-1$:
 
@@ -268,7 +268,7 @@ $$
 \qquad n\in\mathbb Z.
 $$
 
-**Final:** $G_1\{g_2\}$ is the sequence $n\mapsto 3n-1$.
+**Final:** $G_1\lbrace g_2\rbrace$ is the sequence $n\mapsto 3n-1$.
 
 ---
 
@@ -385,7 +385,7 @@ Thus a common period exists.
 
 ### 3.6(h): Answer - smallest common period
 
-Set $T=mT_1=kT_2$ with positive integers $m,k$. Dividing by $T_2$ gives $m\,(T_1/T_2)=k$, i.e. $\tfrac52m=k$, so $5m=2k$. The smallest positive solution is $m=2$ and $k=5$:
+Set $T=mT_1=kT_2$ with positive integers $m,k$. Dividing by $T_2$ gives $m\thinspace(T_1/T_2)=k$, i.e. $\tfrac52m=k$, so $5m=2k$. The smallest positive solution is $m=2$ and $k=5$:
 
 $$
 T=2T_1=5T_2=\frac{2\pi}{3\sqrt{2}}.
@@ -400,7 +400,7 @@ $$
 Both components repeat, so $T$ is a period of the sum. By the rule on slide p. 36, this smallest common period is also the **fundamental** period unless the terms cancel, and a cosine and a sine with different frequencies cannot cancel. For instance, shifting by $T/2$ gives $\cos(6\sqrt2t)-\sin(15\sqrt2t)\ne x(t)$.
 
 $$
-\boxed{T_0=\frac{2\pi}{3\sqrt{2}}=\frac{\sqrt2\,\pi}{3}}.
+\boxed{T_0=\frac{2\pi}{3\sqrt{2}}=\frac{\sqrt2\thinspace\pi}{3}}.
 $$
 
 ---
@@ -469,7 +469,7 @@ Substitute $n+40$ into both terms:
 $$
 \begin{aligned}
 x(n+40)
-&=\sin(0.3\pi n+12\pi)+\cos(0.45\pi n+18\pi)\\
+&=\sin(0.3\pi n+12\pi)+\cos(0.45\pi n+18\pi)\cr
 &=\sin(0.3\pi n)+\cos(0.45\pi n)=x(n).
 \end{aligned}
 $$
@@ -482,7 +482,7 @@ So $40$ is definitely a period. The next slide checks that the sum does not have
 
 Every period of a sequence is an integer multiple of its fundamental period $N_0$. (Otherwise, writing the period as $qN_0+r$ with $0<r<N_0$, the remainder $r$ would be an even smaller period.) Since $40$ is a period, $N_0$ divides $40$: it is $40$ or one of the proper divisors $1,2,4,5,8,10,20$, all of which divide $20$ except $8$.
 
-- $x(0)=1$ but $x(20)=\sin(6\pi)+\cos(9\pi)=0+(-1)=-1$, so $20$ is **not** a period. Then no divisor $d$ of $20$ is a period either: if $d$ were, $20=(20/d)\,d$ would be a period too.
+- $x(0)=1$ but $x(20)=\sin(6\pi)+\cos(9\pi)=0+(-1)=-1$, so $20$ is **not** a period. Then no divisor $d$ of $20$ is a period either: if $d$ were, $20=(20/d)\thinspace d$ would be a period too.
 - $x(8)=\sin(12\pi/5)+\cos(18\pi/5)$. Since $12\pi/5=2\pi+2\pi/5$ and $18\pi/5=4\pi-2\pi/5$, this equals $\sin(2\pi/5)+\cos(2\pi/5)\approx0.951+0.309=1.260\ne1=x(0)$, so $8$ is **not** a period.
 
 No proper divisor works. **Final:** $\boxed{N_0=40}$.
@@ -579,7 +579,7 @@ $$
 **Shift, downsample, then reverse:**
 
 $$
-[\mathcal R(\downarrow M)\mathcal S_bx](n)=x(-Mn-b).
+\lbrack\mathcal R(\downarrow M)\mathcal S_bx\rbrack(n)=x(-Mn-b).
 $$
 
 ---
@@ -616,7 +616,7 @@ This answer is not unique: $(\downarrow7)\mathcal S_{-3}\mathcal Rx$ and $(\down
 
 > Given the function $x$ shown in the figure below, plot and label each of the following functions:
 
-> (e) $\frac14 x\!\left(-\frac12t+1\right)-\frac12$.
+> (e) $\frac14 x\negthinspace\left(-\frac12t+1\right)-\frac12$.
 
 <!-- FIGURE: textbook printed p.70, exercise 3.4, graph of x(t). It is 0 outside [-2,2], height 2 on (-2,0), and a rising line from (0,-2) to (2,0); jump-point membership is not marked. -->
 
@@ -630,13 +630,13 @@ Textbook: Exercise 3.4, printed p. 70.
 
 **Review:** slides pp. 38–43, 49; textbook §§3.2.1–3.2.5 and §3.3.
 
-For the general transformation $y(t)=c\,x(at-b)+d$, write $u=at-b$ for the argument of $x$:
+For the general transformation $y(t)=c\thinspace x(at-b)+d$, write $u=at-b$ for the argument of $x$:
 
 1. An old feature at $u=u_0$ appears where $at-b=u_0$, so
 
    $$t=\frac{u_0+b}{a}\quad(a\ne0).$$
 
-2. Its old height $x(u_0)$ becomes $c\,x(u_0)+d$.
+2. Its old height $x(u_0)$ becomes $c\thinspace x(u_0)+d$.
 
 3. If $a<0$, the left-to-right order reverses. Apply the amplitude rule **after** finding the old $x$ value.
 
@@ -666,9 +666,9 @@ Read the source graph as $x(u)=0$ outside $[-2,2]$, $x(u)=2$ for $-2<u<0$, and $
 
 $$
 y(t)=\begin{cases}
--\frac12, & t<-2,\\
-\frac14(1-\frac12t-2)-\frac12=-\frac34-\frac18t, & -2<t<2,\\
-\frac14(2)-\frac12=0, & 2<t<6,\\
+-\frac12, & t<-2,\cr
+\frac14(1-\frac12t-2)-\frac12=-\frac34-\frac18t, & -2<t<2,\cr
+\frac14(2)-\frac12=0, & 2<t<6,\cr
 -\frac12, & t>6.
 \end{cases}
 $$
@@ -757,10 +757,10 @@ Textbook: Exercise 3.2, printed p. 69.
 
 **Review:** slides pp. 38, 43, 49; textbook §§3.2.1, 3.2.4–3.2.5, 3.3.
 
-For a scaled and shifted copy $g(t)=c\,x(at-b)$:
+For a scaled and shifted copy $g(t)=c\thinspace x(at-b)$:
 
 - An old feature at $u_0$ appears where $at-b=u_0$, so $t=(u_0+b)/a$.
-- The feature's new height is $c\,x(u_0)$.
+- The feature's new height is $c\thinspace x(u_0)$.
 - A wider copy has $|a|<1$; a narrower copy has $|a|>1$.
 
 If separated pieces of $y$ are copies of $x$, write one transformed term for each piece and add them.
@@ -797,9 +797,9 @@ Each term is zero outside its own interval; the three intervals only meet where 
 
 $$
 \boxed{
-y(t)=-x\!\left(\frac{t+5}{2}\right)
+y(t)=-x\negthinspace\left(\frac{t+5}{2}\right)
 +2x(t+1)
--x\!\left(\frac{t-1}{2}\right).}
+-x\negthinspace\left(\frac{t-1}{2}\right).}
 $$
 
 At the three peaks:
@@ -885,8 +885,8 @@ Evaluate the product at $-t$ and substitute the two symmetry rules:
 
 $$
 \begin{aligned}
-h(-t)&=f(-t)g(-t)\\
-&=f(t)[-g(t)]\\
+h(-t)&=f(-t)g(-t)\cr
+&=f(t)[-g(t)]\cr
 &=-f(t)g(t)=-h(t).
 \end{aligned}
 $$
@@ -966,9 +966,9 @@ Combining the given middle interval with the two deductions:
 $$
 \boxed{x(t)=
 \begin{cases}
-1,&t<-1,\\
--t,&-1\le t\le 1,\\
-t-2,&1<t\le3,\\
+1,&t<-1,\cr
+-t,&-1\le t\le 1,\cr
+t-2,&1<t\le3,\cr
 1,&t>3.
 \end{cases}}
 $$
@@ -1036,9 +1036,9 @@ This is **odd symmetry about $n=2$**. Now reflect the known samples:
 
 $$
 \begin{aligned}
-r=0:&\quad x(2)=-x(2)\ \Rightarrow\ x(2)=0,\\
-r=1:&\quad x(3)=-x(1)=-2,\\
-r=2:&\quad x(4)=-x(0)=0,\\
+r=0:&\quad x(2)=-x(2)\ \Rightarrow\ x(2)=0,\cr
+r=1:&\quad x(3)=-x(1)=-2,\cr
+r=2:&\quad x(4)=-x(0)=0,\cr
 r=3:&\quad x(5)=-x(-1)=-2.
 \end{aligned}
 $$
@@ -1066,11 +1066,11 @@ For each function $x$ given below, find a single expression for $x$ (i.e., an ex
 $$
 x(t)=
 \begin{cases}
--t-3 & -3\le t<-2,\\
--1 & -2\le t<-1,\\
-t^3 & -1\le t<1,\\
-1 & 1\le t<2,\\
--t+3 & 2\le t<3,\\
+-t-3 & -3\le t<-2,\cr
+-1 & -2\le t<-1,\cr
+t^3 & -1\le t<1,\cr
+1 & 1\le t<2,\cr
+-t+3 & 2\le t<3,\cr
 0 & \text{otherwise}
 \end{cases};
 $$
@@ -1087,7 +1087,7 @@ $$
 
 $$
 u(t-a)-u(t-b)=
-\begin{cases}1,&a\le t<b,\\0,&\text{otherwise},\end{cases}
+\begin{cases}1,&a\le t<b,\cr 0,&\text{otherwise},\end{cases}
 \qquad a<b.
 $$
 
@@ -1101,11 +1101,11 @@ The five nonzero intervals have windows
 
 $$
 \begin{aligned}
-[-3,-2)&: u(t+3)-u(t+2),\\
-[-2,-1)&: u(t+2)-u(t+1),\\
-[-1,1)&: u(t+1)-u(t-1),\\
-[1,2)&: u(t-1)-u(t-2),\\
-[2,3)&: u(t-2)-u(t-3).
+{[-3,-2)}&: u(t+3)-u(t+2),\cr
+{[-2,-1)}&: u(t+2)-u(t+1),\cr
+{[-1,1)}&: u(t+1)-u(t-1),\cr
+{[1,2)}&: u(t-1)-u(t-2),\cr
+{[2,3)}&: u(t-2)-u(t-3).
 \end{aligned}
 $$
 
@@ -1119,10 +1119,10 @@ Insert each case formula into its own window:
 
 $$
 \begin{aligned}
-x(t)={}&(-t-3)[u(t+3)-u(t+2)]\\
-&-[u(t+2)-u(t+1)]\\
-&+t^3[u(t+1)-u(t-1)]\\
-&+[u(t-1)-u(t-2)]\\
+x(t)={}&(-t-3)[u(t+3)-u(t+2)]\cr
+&-[u(t+2)-u(t+1)]\cr
+&+t^3[u(t+1)-u(t-1)]\cr
+&+[u(t-1)-u(t-2)]\cr
 &+(-t+3)[u(t-2)-u(t-3)].
 \end{aligned}
 $$
@@ -1148,8 +1148,8 @@ Therefore
 
 $$
 \begin{aligned}
-x(t)={}&(-t-3)u(t+3)+(t+2)u(t+2)\\
-&+(t^3+1)u(t+1)+(1-t^3)u(t-1)\\
+x(t)={}&(-t-3)u(t+3)+(t+2)u(t+2)\cr
+&+(t^3+1)u(t+1)+(1-t^3)u(t-1)\cr
 &+(2-t)u(t-2)+(t-3)u(t-3).
 \end{aligned}
 $$
@@ -1165,7 +1165,7 @@ For each sequence $x$ given below, use the unit-step sequence to find a single e
 $$
 x(n)=
 \begin{cases}
-n^2+1 & n\in[0..8],\\
+n^2+1 & n\in[0..8],\cr
 0 & \text{otherwise}
 \end{cases};
 $$
@@ -1182,7 +1182,7 @@ $$
 
 $$
 u(n-a)-u(n-b-1)=
-\begin{cases}1,&n\in[a..b],\\0,&\text{otherwise}.
+\begin{cases}1,&n\in[a..b],\cr 0,&\text{otherwise}.
 \end{cases}
 $$
 
@@ -1215,7 +1215,7 @@ Fully simplify each of the expressions below.
 $$
 \text{(h)}\qquad
 \frac{1}{9}\int_{-\infty}^{\infty}(\tau+6)^2
-\delta\!\left(1-\frac{\tau}{3}\right)\,d\tau.
+\delta\negthinspace\left(1-\frac{\tau}{3}\right)\thinspace d\tau.
 $$
 
 ---
@@ -1229,9 +1229,9 @@ $$
 **Bridge from definition to problem:** for $a\ne0$ and a suitable $f$,
 
 $$
-\delta(a\tau-b)=\frac{1}{|a|}\delta\!\left(\tau-\frac{b}{a}\right),
+\delta(a\tau-b)=\frac{1}{|a|}\delta\negthinspace\left(\tau-\frac{b}{a}\right),
 \qquad
-\int_{-\infty}^{\infty}f(\tau)\delta(\tau-\tau_0)\,d\tau=f(\tau_0).
+\int_{-\infty}^{\infty}f(\tau)\delta(\tau-\tau_0)\thinspace d\tau=f(\tau_0).
 $$
 
 First locate the zero of the delta's argument; then account for its slope.
@@ -1243,7 +1243,7 @@ First locate the zero of the delta's argument; then account for its slope.
 Match the argument to the form $a\tau-b$: $1-\tau/3=(-\tfrac13)\tau-(-1)$, so $a=-\tfrac13$ and $b=-1$. The impulse sits at $\tau=b/a=3$ (check: $1-3/3=0$), and $1/|a|=3$:
 
 $$
-\delta\!\left(1-\frac{\tau}{3}\right)
+\delta\negthinspace\left(1-\frac{\tau}{3}\right)
 =\frac{1}{|-1/3|}\delta(\tau-3)
 =3\delta(\tau-3).
 $$
@@ -1259,9 +1259,9 @@ Apply sifting at $\tau=3$:
 $$
 \begin{aligned}
 \frac19\int_{-\infty}^{\infty}(\tau+6)^2
-\delta\!\left(1-\frac{\tau}{3}\right)\,d\tau
-&=\frac19\cdot3\int_{-\infty}^{\infty}(\tau+6)^2\delta(\tau-3)\,d\tau\\
-&=\frac39(3+6)^2\\
+\delta\negthinspace\left(1-\frac{\tau}{3}\right)\thinspace d\tau
+&=\frac19\cdot3\int_{-\infty}^{\infty}(\tau+6)^2\delta(\tau-3)\thinspace d\tau\cr
+&=\frac39(3+6)^2\cr
 &=\frac13\cdot81=\boxed{27}.
 \end{aligned}
 $$
@@ -1289,7 +1289,7 @@ $$
 
 $$
 \sum_{n\in I}f(n)\delta(n-n_0)=
-\begin{cases}f(n_0),&n_0\in I,\\0,&n_0\notin I.\end{cases}
+\begin{cases}f(n_0),&n_0\in I,\cr 0,&n_0\notin I.\end{cases}
 $$
 
 Before evaluating $f$, check whether the selected index belongs to the sum's range.
