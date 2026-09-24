@@ -198,6 +198,8 @@ We will choose a few to discuss in class; the rest are here for self-study.
 
 Questions are welcome during the tutorial or by email.
 
+Headings marked **(Optional)** contain extra checks, examples, or alternative forms; they are not needed in a written assignment solution.
+
 ---
 
 ### 2.4(h): Mapping types in the slides
@@ -316,14 +318,18 @@ $$
 \frac{\omega}{2\pi}=\frac{6\pi/7}{2\pi}=\frac{3}{7}.
 $$
 
-To make the phase repeat, we need $(6\pi/7)N=2\pi k$ for some integer $k$. Multiply both sides by $7/(2\pi)$ to get $3N=7k$. So $7$ divides $3N$; since $7$ has no common factor with $3$, $7$ must divide $N$. The smallest positive choice is $N=7$. Check by direct substitution:
+To make the phase repeat, we need $(6\pi/7)N=2\pi k$ for some integer $k$. Multiply both sides by $7/(2\pi)$ to get $3N=7k$. So $7$ divides $3N$; since $7$ has no common factor with $3$, $7$ must divide $N$. The smallest positive choice is $N=7$.
+
+**Final:** The sequence is periodic with fundamental period $\boxed{N=7}$.
+
+#### 8.4(c): Direct substitution check (Optional)
+
+Check by direct substitution:
 
 $$
 x(n+7)=\sin\left(\frac{6\pi}{7}(n+7)+1\right)
 =\sin\left(\frac{6\pi}{7}n+1+6\pi\right)=x(n).
 $$
-
-**Final:** The sequence is periodic with fundamental period $\boxed{N=7}$.
 
 ---
 
@@ -391,17 +397,21 @@ $$
 T=2T_1=5T_2=\frac{2\pi}{3\sqrt{2}}.
 $$
 
+The cosine and sine have different frequencies, so they cannot cancel. Therefore the smallest common period is the **fundamental** period:
+
+$$
+\boxed{T_0=\frac{2\pi}{3\sqrt{2}}=\frac{\sqrt2\thinspace\pi}{3}}.
+$$
+
+#### 3.6(h): Phase check (Optional)
+
 Check the phase changes after this shift:
 
 $$
 (6\sqrt{2})T=4\pi,\qquad (15\sqrt{2})T=10\pi.
 $$
 
-Both components repeat, so $T$ is a period of the sum. By the rule on slide p. 36, this smallest common period is also the **fundamental** period unless the terms cancel, and a cosine and a sine with different frequencies cannot cancel. For instance, shifting by $T/2$ gives $\cos(6\sqrt2t)-\sin(15\sqrt2t)\ne x(t)$.
-
-$$
-\boxed{T_0=\frac{2\pi}{3\sqrt{2}}=\frac{\sqrt2\thinspace\pi}{3}}.
-$$
+Both components repeat, so $T$ is a period of the sum. For instance, shifting by $T/2$ gives $\cos(6\sqrt2t)-\sin(15\sqrt2t)\ne x(t)$.
 
 ---
 
@@ -438,7 +448,7 @@ $$
 N=\mathrm{lcm}(N_1,N_2).
 $$
 
-It is also the **fundamental** period of the sum unless the terms cancel (slide p. 36); the check below confirms this directly.
+It is also the **fundamental** period of the sum unless the terms cancel (slide p. 36); the optional checks below verify this case explicitly.
 
 ---
 
@@ -458,11 +468,13 @@ $$
 \quad\Longrightarrow\quad N_2=40.
 $$
 
-Thus $N=\mathrm{lcm}(20,40)=40$ is a period of the sum.
+Thus $N=\mathrm{lcm}(20,40)=40$ is a period of the sum. The two terms have distinct frequencies and cannot cancel, so this common period is fundamental.
+
+**Final:** $\boxed{N_0=40}$.
 
 ---
 
-### 8.5(c): Answer - check the period
+### 8.5(c): Answer - check the period (Optional)
 
 Substitute $n+40$ into both terms:
 
@@ -478,14 +490,14 @@ So $40$ is definitely a period. The next slide checks that the sum does not have
 
 ---
 
-### 8.5(c): Answer - exclude shorter periods
+### 8.5(c): Answer - exclude shorter periods (Optional)
 
 Every period of a sequence is an integer multiple of its fundamental period $N_0$. (Otherwise, writing the period as $qN_0+r$ with $0\lt r\lt N_0$, the remainder $r$ would be an even smaller period.) Since $40$ is a period, $N_0$ divides $40$: it is $40$ or one of the proper divisors $1,2,4,5,8,10,20$, all of which divide $20$ except $8$.
 
 - $x(0)=1$ but $x(20)=\sin(6\pi)+\cos(9\pi)=0+(-1)=-1$, so $20$ is **not** a period. Then no divisor $d$ of $20$ is a period either: if $d$ were, $20=(20/d)\thinspace d$ would be a period too.
 - $x(8)=\sin(12\pi/5)+\cos(18\pi/5)$. Since $12\pi/5=2\pi+2\pi/5$ and $18\pi/5=4\pi-2\pi/5$, this equals $\sin(2\pi/5)+\cos(2\pi/5)\approx0.951+0.309=1.260\ne1=x(0)$, so $8$ is **not** a period.
 
-No proper divisor works. **Final:** $\boxed{N_0=40}$.
+No proper divisor works, confirming $N_0=40$.
 
 ---
 
@@ -607,6 +619,8 @@ $$
 $$
 
 **Answer:** $\boxed{y=\mathcal R(\downarrow7)\mathcal S_3x}$.
+
+#### 8.1(d): Alternative operator orders (Optional)
 
 This answer is not unique: $(\downarrow7)\mathcal S_{-3}\mathcal Rx$ and $(\downarrow7)\mathcal R\mathcal S_3x$ are also correct. (Exercise 3.34 fixes the order of the operators; Exercise 8.1 does not.) To check any form, apply it step by step and compare with $x(-7n-3)$.
 
@@ -730,7 +744,11 @@ $$
 (-3,1),\ (-2,3),\ (-1,3),\ (0,2),\ (1,1),\ (2,1).
 $$
 
-All other output samples are zero. For example,
+All other output samples are zero.
+
+#### 8.2(f): Extra sample checks (Optional)
+
+For example,
 
 $$
 y(-4)=x(1-2(-4))=x(9)=0,\qquad
@@ -767,7 +785,7 @@ If separated pieces of $y$ are copies of $x$, write one transformed term for eac
 
 ---
 
-### 3.2(c): Answer, read the three triangles
+### 3.2(c): Answer, read the three triangles (Optional)
 
 The source $x$ is zero outside $[0,2]$, has peak $x(1)=1$, and is zero at both endpoints.
 
@@ -793,7 +811,7 @@ Each term is zero outside its own interval; the three intervals only meet where 
 
 ---
 
-### 3.2(c): Full answer and numerical checks
+### 3.2(c): Full answer
 
 $$
 \boxed{
@@ -801,6 +819,10 @@ y(t)=-x\negthinspace\left(\frac{t+5}{2}\right)
 +2x(t+1)
 -x\negthinspace\left(\frac{t-1}{2}\right).}
 $$
+
+The result uses one term per nonzero triangular piece: three terms in total.
+
+#### 3.2(c): Peak checks (Optional)
 
 At the three peaks:
 
@@ -815,8 +837,6 @@ $$
 $$
 y(3)=-x(4)+2x(4)-x(1)=-1.
 $$
-
-The result uses one term per nonzero triangular piece: three terms in total.
 
 ---
 
@@ -851,9 +871,11 @@ $$
 x(-t)=(-t)^3|-t|=(-t^3)|t|=-t^3|t|=-x(t).
 $$
 
-For example, $x(2)=2^3|2|=8(2)=16$ and $x(-2)=(-2)^3|-2|=(-8)(2)=-16$.
-
 Because $x(-t)=-x(t)$ for every real $t$, **$x$ is odd**.
+
+#### 3.9(b): Numerical example (Optional)
+
+For example, $x(2)=2^3|2|=8(2)=16$ and $x(-2)=(-2)^3|-2|=(-8)(2)=-16$.
 
 ---
 
@@ -891,7 +913,11 @@ h(-t)&=f(-t)g(-t)\cr
 \end{aligned}
 $$
 
-This proves that the product is odd. As a numerical check, take $f(t)=t^2+1$ and $g(t)=t$: $h(2)=(4+1)(2)=10$, while $h(-2)=(4+1)(-2)=-10$.
+This proves that the product is odd.
+
+#### 3.10(f): Numerical illustration (Optional)
+
+Take $f(t)=t^2+1$ and $g(t)=t$: $h(2)=(4+1)(2)=10$, while $h(-2)=(4+1)(-2)=-10$.
 
 ---
 
@@ -938,6 +964,8 @@ $$
 x(s)=1\qquad(s\lt-1).
 $$
 
+#### 3.17(d): Sample values (Optional)
+
 Thus $x(-2)=1$. The given formula handles the next interval: $x(-1)=1$, $x(0)=0$, and $x(1)=-1$.
 
 ---
@@ -954,6 +982,8 @@ Putting $s=t+1$ gives $x(s)=x(2-s)$. The mirror is centered at **$s=1$**.
 
 - For $1\lt s\le3$, $2-s\in[-1,1)$, so $x(s)=x(2-s)=-(2-s)=s-2$.
 - For $s>3$, $2-s\lt-1$, so $x(s)=x(2-s)=1$.
+
+#### 3.17(d): Reflected sample checks (Optional)
 
 For example, $x(2)=x(0)=0$, $x(3)=x(-1)=1$, and $x(4)=x(-2)=1$.
 
@@ -972,6 +1002,8 @@ t-2,&1\lt t\le3,\cr
 1,&t>3.
 \end{cases}}
 $$
+
+#### 3.17(d): Boundary and property checks (Optional)
 
 At the boundaries, the pieces agree: $x(-1)=1$, $x(1)=-1$, and $x(3)=1$. The resulting $v(t)=x(t+1)$ is even, and $w(t)=x(t-1)-1=0$ for $t\lt 0$.
 
@@ -1054,6 +1086,8 @@ The **complete sequence** has only four nonzero samples:
 $$
 \boxed{x(-1)=2,\quad x(1)=2,\quad x(3)=-2,\quad x(5)=-2;\qquad x(n)=0\text{ otherwise}.}
 $$
+
+#### 8.14(a): Property check (Optional)
 
 Check: $v(n)=x(n-1)=0$ when $n\lt 0$, and every pair about $n=2$ has opposite values: $x(1)=2=-x(3)$ and $x(-1)=2=-x(5)$.
 
@@ -1154,6 +1188,8 @@ x(t)={}&(-t-3)u(t+3)+(t+2)u(t+2)\cr
 \end{aligned}
 $$
 
+#### 3.22(a): Interval check (Optional)
+
 Check $2\le t\lt 3$: the first five terms sum to $(-t-3)+(t+2)+(t^3+1)+(1-t^3)+(2-t)=3-t$. At $t\ge3$, the final term also turns on and the sum becomes $0$.
 
 ---
@@ -1203,6 +1239,8 @@ Multiply by the nonzero case formula:
 $$
 \boxed{x(n)=(n^2+1)[u(n)-u(n-9)]}.
 $$
+
+#### 8.17(a): Boundary checks (Optional)
 
 At $n=0$ the window is $1$ and $x(0)=0^2+1=1$; at $n=8$ it is $1$ and $x(8)=8^2+1=65$. At $n=9$, both steps are $1$, so $x(9)=0$.
 
@@ -1332,6 +1370,8 @@ X <- square every entry of T simultaneously
 RETURN X with the same shape as T
 ```
 
+#### D.9(a): Quick check (Optional)
+
 **Check:** The row `[-2, 0, 3]` should become `[4, 0, 9]`. There should be no loop over rows or columns.
 
 ---
@@ -1348,7 +1388,11 @@ x  <- I1 times t squared + I2 times t
 RETURN x
 ```
 
-There is no `if` branch: outside both intervals, `I1 = I2 = 0`. **Check the boundaries:** `t = 1` should give `1`, `t = 2` should give `2`, and `t = 5` should give `0`.
+There is no `if` branch: outside both intervals, `I1 = I2 = 0`.
+
+#### D.9(b): Boundary checks (Optional)
+
+At `t = 1` the result should be `1`, at `t = 2` it should be `2`, and at `t = 5` it should be `0`.
 
 ---
 
@@ -1365,7 +1409,11 @@ X  <- element-wise product of M1 and the element-wise square of T
 RETURN X with the same shape as T
 ```
 
-In MATLAB, combine array comparisons with `&`, not `&&`; use `.^` and `.*` for element-wise arithmetic. Test entries below 1, at 1, at 2, at 5, and above 5.
+In MATLAB, combine array comparisons with `&`, not `&&`; use `.^` and `.*` for element-wise arithmetic.
+
+#### D.9(c): Boundary checks (Optional)
+
+Test entries below 1, at 1, at 2, at 5, and above 5.
 
 ---
 
@@ -1390,4 +1438,8 @@ FOR each mathematical output index k = 0, 1, ..., N-1:
 RETURN y
 ```
 
-The `+1` converts mathematical indices to MATLAB's 1-based positions. **Check:** for `x = [1 2 3 4]`, `n = 1` gives `[4 1 2 3]`, `n = -1` gives `[2 3 4 1]`, and `n = 4` gives the original vector.
+The `+1` converts mathematical indices to MATLAB's 1-based positions.
+
+#### 8.201: Shift checks (Optional)
+
+For `x = [1 2 3 4]`, `n = 1` gives `[4 1 2 3]`, `n = -1` gives `[2 3 4 1]`, and `n = 4` gives the original vector.
