@@ -99,7 +99,7 @@ t=\frac{u_0+b}{a}.
 $$
 
 - Apply this to each endpoint, jump, or labelled point.
-- If $a<0$, their left-to-right order reverses.
+- If $a\lt 0$, their left-to-right order reverses.
 - For operator compositions, read from **right to left**.
 - For DT, go backward: for each integer $n$, read $x(an-b)$. Samples that are never read are dropped.
 
@@ -111,8 +111,8 @@ $$
 | --- | --- |
 | Even | $x(-\xi)=x(\xi)$ |
 | Odd | $x(-\xi)=-x(\xi)$ |
-| Right-sided signal | $x(\xi)=0$ for every $\xi<\xi_0$, for some $\xi_0$ |
-| Causal **signal** | $x(\xi)=0$ for every $\xi<0$ |
+| Right-sided signal | $x(\xi)=0$ for every $\xi\lt\xi_0$, for some $\xi_0$ |
+| Causal **signal** | $x(\xi)=0$ for every $\xi\lt 0$ |
 
 Every signal can be split into even and odd parts:
 
@@ -130,11 +130,11 @@ Use the definition on the **whole domain**. An odd signal has $x(0)=0$; a right-
 The CT and DT unit steps obey the same boundary rule:
 
 $$
-u(\xi)=\begin{cases}0,&\xi<0,\cr 1,&\xi\ge0.\end{cases}
+u(\xi)=\begin{cases}0,&\xi\lt 0,\cr 1,&\xi\ge0.\end{cases}
 \qquad\text{In particular, }u(0)=1.
 $$
 
-For $a<b$, the window $u(\xi-a)-u(\xi-b)$ is on exactly when $a\le\xi<b$: the interval $[a,b)$ in CT, or $[a..b)$ in DT (integers $a,b$; samples $a,\ldots,b-1$).
+For $a\lt b$, the window $u(\xi-a)-u(\xi-b)$ is on exactly when $a\le\xi\lt b$: the interval $[a,b)$ in CT, or $[a..b)$ in DT (integers $a,b$; samples $a,\ldots,b-1$).
 
 **Two-case pattern:** start with a baseline $f_0(\xi)$, then switch to $f_1(\xi)$ at $a$:
 
@@ -480,7 +480,7 @@ So $40$ is definitely a period. The next slide checks that the sum does not have
 
 ### 8.5(c): Answer - exclude shorter periods
 
-Every period of a sequence is an integer multiple of its fundamental period $N_0$. (Otherwise, writing the period as $qN_0+r$ with $0<r<N_0$, the remainder $r$ would be an even smaller period.) Since $40$ is a period, $N_0$ divides $40$: it is $40$ or one of the proper divisors $1,2,4,5,8,10,20$, all of which divide $20$ except $8$.
+Every period of a sequence is an integer multiple of its fundamental period $N_0$. (Otherwise, writing the period as $qN_0+r$ with $0\lt r\lt N_0$, the remainder $r$ would be an even smaller period.) Since $40$ is a period, $N_0$ divides $40$: it is $40$ or one of the proper divisors $1,2,4,5,8,10,20$, all of which divide $20$ except $8$.
 
 - $x(0)=1$ but $x(20)=\sin(6\pi)+\cos(9\pi)=0+(-1)=-1$, so $20$ is **not** a period. Then no divisor $d$ of $20$ is a period either: if $d$ were, $20=(20/d)\thinspace d$ would be a period too.
 - $x(8)=\sin(12\pi/5)+\cos(18\pi/5)$. Since $12\pi/5=2\pi+2\pi/5$ and $18\pi/5=4\pi-2\pi/5$, this equals $\sin(2\pi/5)+\cos(2\pi/5)\approx0.951+0.309=1.260\ne1=x(0)$, so $8$ is **not** a period.
@@ -638,7 +638,7 @@ For the general transformation $y(t)=c\thinspace x(at-b)+d$, write $u=at-b$ for 
 
 2. Its old height $x(u_0)$ becomes $c\thinspace x(u_0)+d$.
 
-3. If $a<0$, the left-to-right order reverses. Apply the amplitude rule **after** finding the old $x$ value.
+3. If $a\lt 0$, the left-to-right order reverses. Apply the amplitude rule **after** finding the old $x$ value.
 
 ---
 
@@ -662,13 +662,13 @@ The transformed graph must therefore change form at $t=-2,2,6$.
 
 ### 3.4(e): Answer, heights and sketch
 
-Read the source graph as $x(u)=0$ outside $[-2,2]$, $x(u)=2$ for $-2<u<0$, and $x(u)=u-2$ for $0<u<2$.
+Read the source graph as $x(u)=0$ outside $[-2,2]$, $x(u)=2$ for $-2\lt u\lt 0$, and $x(u)=u-2$ for $0\lt u\lt 2$.
 
 $$
 y(t)=\begin{cases}
--\frac12, & t<-2,\cr
-\frac14(1-\frac12t-2)-\frac12=-\frac34-\frac18t, & -2<t<2,\cr
-\frac14(2)-\frac12=0, & 2<t<6,\cr
+-\frac12, & t\lt-2,\cr
+\frac14(1-\frac12t-2)-\frac12=-\frac34-\frac18t, & -2\lt t\lt 2,\cr
+\frac14(2)-\frac12=0, & 2\lt t\lt 6,\cr
 -\frac12, & t>6.
 \end{cases}
 $$
@@ -761,7 +761,7 @@ For a scaled and shifted copy $g(t)=c\thinspace x(at-b)$:
 
 - An old feature at $u_0$ appears where $at-b=u_0$, so $t=(u_0+b)/a$.
 - The feature's new height is $c\thinspace x(u_0)$.
-- A wider copy has $|a|<1$; a narrower copy has $|a|>1$.
+- A wider copy has $|a|\lt 1$; a narrower copy has $|a|>1$.
 
 If separated pieces of $y$ are copies of $x$, write one transformed term for each piece and add them.
 
@@ -916,7 +916,7 @@ The general rules to translate into conditions on $x$ are
 $$
 v(-t)=v(t)\quad\text{for every }t,
 \qquad
-w(t)=0\quad\text{for }t<0.
+w(t)=0\quad\text{for }t\lt 0.
 $$
 
 For a shifted signal, substitute into its **definition** before imposing symmetry or causality. In particular, “$w$ causal” concerns the output $w(t)=x(t-1)-1$, not $x(t)$ itself.
@@ -925,17 +925,17 @@ For a shifted signal, substitute into its **definition** before imposing symmetr
 
 ### 3.17(d): Answer, left side
 
-The causal condition sets $w(t)=0$ for every $t<0$:
+The causal condition sets $w(t)=0$ for every $t\lt 0$:
 
 $$
 0=w(t)=x(t-1)-1
-\quad\Longrightarrow\quad x(t-1)=1\quad(t<0).
+\quad\Longrightarrow\quad x(t-1)=1\quad(t\lt 0).
 $$
 
-Set $s=t-1$. Since $t<0$ means $s<-1$,
+Set $s=t-1$. Since $t\lt 0$ means $s\lt-1$,
 
 $$
-x(s)=1\qquad(s<-1).
+x(s)=1\qquad(s\lt-1).
 $$
 
 Thus $x(-2)=1$. The given formula handles the next interval: $x(-1)=1$, $x(0)=0$, and $x(1)=-1$.
@@ -952,8 +952,8 @@ $$
 
 Putting $s=t+1$ gives $x(s)=x(2-s)$. The mirror is centered at **$s=1$**.
 
-- For $1<s\le3$, $2-s\in[-1,1)$, so $x(s)=x(2-s)=-(2-s)=s-2$.
-- For $s>3$, $2-s<-1$, so $x(s)=x(2-s)=1$.
+- For $1\lt s\le3$, $2-s\in[-1,1)$, so $x(s)=x(2-s)=-(2-s)=s-2$.
+- For $s>3$, $2-s\lt-1$, so $x(s)=x(2-s)=1$.
 
 For example, $x(2)=x(0)=0$, $x(3)=x(-1)=1$, and $x(4)=x(-2)=1$.
 
@@ -966,14 +966,14 @@ Combining the given middle interval with the two deductions:
 $$
 \boxed{x(t)=
 \begin{cases}
-1,&t<-1,\cr
+1,&t\lt-1,\cr
 -t,&-1\le t\le 1,\cr
-t-2,&1<t\le3,\cr
+t-2,&1\lt t\le3,\cr
 1,&t>3.
 \end{cases}}
 $$
 
-At the boundaries, the pieces agree: $x(-1)=1$, $x(1)=-1$, and $x(3)=1$. The resulting $v(t)=x(t+1)$ is even, and $w(t)=x(t-1)-1=0$ for $t<0$.
+At the boundaries, the pieces agree: $x(-1)=1$, $x(1)=-1$, and $x(3)=1$. The resulting $v(t)=x(t+1)$ is even, and $w(t)=x(t-1)-1=0$ for $t\lt 0$.
 
 ---
 
@@ -998,7 +998,7 @@ Only the factor $2$ in the first bullet differs from the textbook exercise.
 For an integer-indexed sequence, the rules are
 
 $$
-v(n)=0\quad(n<0),\qquad
+v(n)=0\quad(n\lt 0),\qquad
 w(-n)=-w(n)\quad(n\in\mathbb Z).
 $$
 
@@ -1014,7 +1014,7 @@ $$
 x(-1)=2(-1)^2=2,\qquad x(0)=2(0)^2=0,\qquad x(1)=2(1)^2=2.
 $$
 
-Next, causality gives $v(n)=0$ for $n<0$. With $v(n)=x(n-1)$, set $k=n-1$:
+Next, causality gives $v(n)=0$ for $n\lt 0$. With $v(n)=x(n-1)$, set $k=n-1$:
 
 $$
 x(k)=0\quad\text{for every integer }k\le-2.
@@ -1055,7 +1055,7 @@ $$
 \boxed{x(-1)=2,\quad x(1)=2,\quad x(3)=-2,\quad x(5)=-2;\qquad x(n)=0\text{ otherwise}.}
 $$
 
-Check: $v(n)=x(n-1)=0$ when $n<0$, and every pair about $n=2$ has opposite values: $x(1)=2=-x(3)$ and $x(-1)=2=-x(5)$.
+Check: $v(n)=x(n-1)=0$ when $n\lt 0$, and every pair about $n=2$ has opposite values: $x(1)=2=-x(3)$ and $x(-1)=2=-x(5)$.
 
 ---
 
@@ -1066,11 +1066,11 @@ For each function $x$ given below, find a single expression for $x$ (i.e., an ex
 $$
 x(t)=
 \begin{cases}
--t-3 & -3\le t<-2,\cr
--1 & -2\le t<-1,\cr
-t^3 & -1\le t<1,\cr
-1 & 1\le t<2,\cr
--t+3 & 2\le t<3,\cr
+-t-3 & -3\le t\lt-2,\cr
+-1 & -2\le t\lt-1,\cr
+t^3 & -1\le t\lt 1,\cr
+1 & 1\le t\lt 2,\cr
+-t+3 & 2\le t\lt 3,\cr
 0 & \text{otherwise}
 \end{cases};
 $$
@@ -1087,8 +1087,8 @@ $$
 
 $$
 u(t-a)-u(t-b)=
-\begin{cases}1,&a\le t<b,\cr 0,&\text{otherwise},\end{cases}
-\qquad a<b.
+\begin{cases}1,&a\le t\lt b,\cr 0,&\text{otherwise},\end{cases}
+\qquad a\lt b.
 $$
 
 Multiply each case formula by the window for its interval, then add the terms.
@@ -1109,7 +1109,7 @@ $$
 \end{aligned}
 $$
 
-For example, $u(t+3)-u(t+2)=1$ only when $-3\le t<-2$.
+For example, $u(t+3)-u(t+2)=1$ only when $-3\le t\lt-2$.
 
 ---
 
@@ -1154,7 +1154,7 @@ x(t)={}&(-t-3)u(t+3)+(t+2)u(t+2)\cr
 \end{aligned}
 $$
 
-Check $2\le t<3$: the first five terms sum to $(-t-3)+(t+2)+(t^3+1)+(1-t^3)+(2-t)=3-t$. At $t\ge3$, the final term also turns on and the sum becomes $0$.
+Check $2\le t\lt 3$: the first five terms sum to $(-t-3)+(t+2)+(t^3+1)+(1-t^3)+(2-t)=3-t$. At $t\ge3$, the final term also turns on and the sum becomes $0$.
 
 ---
 
