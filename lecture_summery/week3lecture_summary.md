@@ -1,10 +1,10 @@
 # ECE265 Lecture Key Knowledge Summary 3
 
-**Coverage:** This summary continues immediately after [Lecture Key Knowledge Summary 2](tutorial2lecture_summary.md). It covers the *unified* lecture slides from **printed p. 115, “Bounded-Input Bounded-Output (BIBO) Stability,” through printed p. 127, “Practical CT Convolution Computation.”** Printed p. 128, **“Practical DT Convolution Computation,” is not included.** The corresponding PDF-viewer pages are 134–146.
+**Coverage:** This summary continues immediately after [Lecture Key Knowledge Summary 2](week2lecture_summary.md). It covers the *unified* lecture slides from **printed p. 115, “Bounded-Input Bounded-Output (BIBO) Stability,” through printed p. 127, “Practical CT Convolution Computation.”** Printed p. 128, **“Practical DT Convolution Computation,” is not included.** The corresponding PDF-viewer pages are 134–146.
 
 This is a supplementary study guide, not a replacement for the instructor's slides, textbook, assignment sheet, or announcements. Slide page numbers below are the **printed** numbers. The slide deck and textbook used here are both Edition **7.0.0-beta.1**.
 
-**Where Assignment 2B fits:** Memory, causality, and invertibility were covered in §11 of [Summary 2](tutorial2lecture_summary.md). This summary covers its BIBO-stability, time-invariance, linearity, and eigenfunction/eigensequence concepts. The LTI and convolution slides at the end introduce the next topic; Assignment 2B does **not** ask for convolution computation.
+**Where Assignment 2B fits:** Memory, causality, and invertibility were covered in §11 of [Summary 2](week2lecture_summary.md). This summary covers its BIBO-stability, time-invariance, linearity, and eigenfunction/eigensequence concepts. The LTI and convolution slides at the end introduce the next topic; Assignment 2B does **not** ask for convolution computation.
 
 The slides use a common variable $\xi$: read $\xi=t\in\mathbb{R}$ for CT functions and $\xi=n\in\mathbb{Z}$ for DT sequences. In this summary, $Hx$ means the **whole output signal**, while $(Hx)(\xi)$ is its value at one time or index.
 
