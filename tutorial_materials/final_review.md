@@ -6,9 +6,24 @@ T02 · Ruilin Wang
 
 This guide covers the course sequence from Chapter 1 through Chapter 12, including the complex-number tools in Appendix A. It follows the course's continuous-time/discrete-time (CT/DT) pairing, not the order in which the textbook separates the two. It is a review of course material, **not an official final-exam scope or formula sheet**. Use the [course page](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/) and Brightspace for exam announcements.
 
+### If you only have one evening
+
+Try to name the first step for each skill without looking. If you get stuck, open the linked section, do its short check, and move on.
+
+1. [Trace a transformed signal](#13-how-do-i-describe-or-modify-a-signal) — map a breakpoint or sample index through a shift, reversal or scaling operation.
+2. [Test a system property](#14-how-do-i-check-the-properties-of-an-arbitrary-system) — start from the definition; for time invariance, compare the two shift routes.
+3. [Use an impulse response](#2-lti-systems-and-convolution) — find the overlap before integrating or summing, and decide what $h$ says about causality and stability.
+4. [Find and read Fourier-series coefficients](#31-which-harmonics-make-up-a-periodic-signal) — find the fundamental period, then check the DC term and conjugate pairs.
+5. [Go from DTFS coefficients to DFT bins](#32-why-are-the-dtfs-and-dft-not-the-same-array) — put indices in the correct order and apply the factor of $N$.
+6. [Choose a Fourier-transform rule](#42-how-do-i-pick-a-transform-property-instead-of-starting-over) — recognize a known pair; distinguish a time delay, which changes phase, from modulation, which shifts the spectrum.
+7. [Predict an LTI output in frequency](#43-how-do-i-use-a-frequency-response-to-predict-the-output) — find $H$ from $h$ or an equation, then apply $Y=HX$ without dropping phase.
+8. [Spot aliasing before it happens](#44-what-is-being-sampled-a-spectrum-or-a-waveform) — mark the spacing of the spectral copies and check whether they overlap where the reconstruction filter passes.
+9. [Invert a Laplace or Z transform](#52-how-do-i-go-from-the-signal-to-the-transform-and-back-6a) — separate delays or direct terms, handle repeated poles, and match the result to the right transform pair.
+10. [Use poles and the ROC to check stability](#53-how-do-equations-system-functions-and-poles-fit-together-6b) — find the zero-state system function, then check the imaginary axis in CT or the unit circle in DT.
+
 ### How to use this guide
 
-If you are starting from scratch, follow the five modules in order. If you are stuck on a particular type of question, start with [Choose a transform](#choose-a-transform) or [Choose a system method](#choose-a-system-method). Try each short check before jumping to the [answers](#self-check-answers). The [assignment practice](#assignment-practice) is there to check your method, not to replace the explanations.
+If you are starting from scratch, follow the five modules in order. If you are stuck on a particular type of question, start with [Choose a transform](#choose-a-transform) or [Choose a system method](#choose-a-system-method). Try each short check before jumping to the [answers](#self-check-answers). Use the [assignment practice](#assignment-practice) to check your method.
 
 1. [Signals and systems basics](#1-signals-and-systems-basics)
 2. [LTI systems and convolution](#2-lti-systems-and-convolution)
@@ -30,6 +45,8 @@ Before substituting into a formula, identify its domain and codomain. For $x(n-2
 
 **Check 1A.** Is a sequence with integer time but continuously valued amplitudes CT or DT? [Answer](#check-1a)
 
+**Practice:** [T2, 2.4(h): identify a mapping's domain and codomain](./tutorial2materials.md#24h-problem).
+
 **References:** slides pp. 2–9, 14–25; textbook Ch. 1–2.
 
 ### 1.2 Where do complex numbers enter?
@@ -47,6 +64,8 @@ $$
 An analytic function is complex differentiable in a neighborhood. For a rational expression, factor first: uncancelled numerator roots are zeros and uncancelled denominator roots are poles, with multiplicities given by the remaining powers. A canceled factor is not a pole, but do not assume that the value at that point was defined in the original expression. This same bookkeeping will matter when reading a transfer function.
 
 **Check 1B.** Is the principal argument of $-1+j$ equal to $-\pi/4$? [Answer](#check-1b)
+
+**Practice:** [T1, A.3(c): divide in polar form](./tutorial1materials.md#a3c-divide-in-polar-form); [T1, A.6(a): recover cosine from Euler's relation](./tutorial1materials.md#a6a-recover-cosine-from-eulers-relation).
 
 **References:** slides pp. 360–383; textbook Appendix A.
 
@@ -84,7 +103,7 @@ for an input suitable for the sifting operation. In DT, $\sum_n x(n)\delta(n-n_0
 
 **Check 1C.** Where is the feature originally at $t=5$ in $x(2t-1)$? What is its new value relative to the original? [Answer](#check-1c)
 
-**Practice:** [Assignment 2A, 3.17(c)](#practice-317c) combines causality with even-part decomposition.
+**Practice:** [Assignment 2A, 3.17(c)](#practice-317c) combines causality with even-part decomposition. For time transformations, see [T2, 3.34(a): CT time operations](./tutorial2materials.md#334a-problem) and [T2, 8.2(f): DT shift and downsampling](./tutorial2materials.md#82f-problem).
 
 **References:** slides pp. 27–45 and 47–102; textbook Ch. 3 and 8, plus Ch. 2 for norms and dB.
 
@@ -105,6 +124,8 @@ A proof must cover the allowed inputs and time indices. A counterexample only ne
 
 **Check 1D.** Is $y(n)=n x(n)$ linear, time-invariant, and BIBO stable? [Answer](#check-1d)
 
+**Practice:** [T3, 3.28(e): compare the two shift routes](./tutorial3materials.md#328e-problem); [T3, 3.27(c): test BIBO stability](./tutorial3materials.md#327c-problem).
+
 **References:** slides pp. 105–121; textbook Ch. 3 and 8.
 
 ## 2. LTI systems and convolution
@@ -118,11 +139,63 @@ $$
 (x\ast h)(n)=\sum_{k=-\infty}^{\infty}x(k)h(n-k).
 $$
 
-Read $t$ or $n$ as fixed while you integrate in $\tau$ or sum over $k$. For each output time, find where **both** factors are nonzero. For example, if $x(\tau)$ is supported on $[a,b]$ and $h$ on $[c,d]$, the second factor is supported in $\tau$ on $[t-d,t-c]$. Intersect this with $[a,b]$ before integrating. New pieces of the answer occur where endpoints meet. In DT you can use the same method with integer endpoints, or a table of products grouped by the sum of the input indices. For finite DT sequences of lengths $L_x$ and $L_h$ starting at $n_x$ and $n_h$, the full convolution has $L_x+L_h-1$ slots starting at $n_x+n_h$. Some entries may be zero; the span is not a claim that every entry is nonzero.
+Read $t$ or $n$ as fixed while you integrate in $\tau$ or sum over $k$. For each output time, find where **both** factors are nonzero. For example, if $x(\tau)$ is supported on $[a,b]$ and $h$ on $[c,d]$, the second factor is supported in $\tau$ on $[t-d,t-c]$. Intersect this with $[a,b]$ before integrating. New pieces of the answer occur where endpoints meet. In DT you can use the same method with integer endpoints, or a table of products grouped by the sum of the input indices. For finite DT sequences of lengths $L_x$ and $L_h$ starting at $n_x$ and $n_h$, the full convolution has $L_x+L_h-1$ slots starting at $n_x+n_h$. This span tells you which indices to include, even when some entries are zero.
 
-Convolution is commutative, associative and distributive under the usual existence conditions. The impulse is the identity, and convolving with a shifted impulse shifts the signal: $(x\ast\delta_{\mathrm{shifted}})(n)=x(n-m)$ when $\delta_{\mathrm{shifted}}(n)=\delta(n-m)$ (with the analogous CT result). That is often much faster than setting up an integral.
+Convolution is commutative, associative and distributive. The impulse is the identity, and convolving with a shifted impulse shifts the signal: $(x\ast\delta_{\mathrm{shifted}})(n)=x(n-m)$ when $\delta_{\mathrm{shifted}}(n)=\delta(n-m)$ (with the analogous CT result). That is often much faster than setting up an integral.
 
 **Check 2A.** If two finite sequences start at $-2$ and $3$, what index belongs to the first entry returned by MATLAB's full convolution? [Answer](#check-2a)
+
+**Practice:** [T4, 4.3(e): CT graphical convolution](./tutorial4materials.md#43e-problem); [T4, 9.3(d): DT tabular convolution](./tutorial4materials.md#93d-problem).
+
+#### Worked example: piecewise CT convolution
+
+**Assignment 3A, 4.3(f) (textbook p. 115).** Find the convolution of $x(t)=e^{-\lvert t\rvert}$ and $h(t)=(t-1)[u(t-1)-u(t-2)]$.
+
+**1. Set up the integral and find the split points.**
+
+$$
+y(t)=\int_1^2(\tau-1)e^{-\lvert t-\tau\rvert}\thinspace d\tau.
+$$
+
+The limits come from $h(\tau)$, which is zero outside $1\le\tau\lt 2$. The peak of $x(t-\tau)$ is at $\tau=t$. To its left, $x(t-\tau)=e^{\tau-t}$; to its right it is $e^{t-\tau}$. The three cases are set by where the peak falls: to the left of $[1,2]$, inside the interval, or to its right.
+
+**2. Integrate each case.** The two antiderivatives you need are $(\tau-2)e^\tau$ for $(\tau-1)e^\tau$ and $-\tau e^{-\tau}$ for $(\tau-1)e^{-\tau}$.
+
+For $t\lt 1$, the whole interval is to the right of the peak:
+
+$$
+y(t)=e^t\left\lbrack-\tau e^{-\tau}\right\rbrack_1^2
+=e^t(e^{-1}-2e^{-2})
+=e^{t-1}-2e^{t-2}.
+$$
+
+For $1\le t\lt 2$, split at $\tau=t$:
+
+$$
+y(t)=e^{-t}\left\lbrack(\tau-2)e^\tau\right\rbrack_1^t
++e^t\left\lbrack-\tau e^{-\tau}\right\rbrack_t^2
+=(t-2)+e^{1-t}+t-2e^{t-2}.
+$$
+
+For $t\ge 2$, the whole interval is to the left of the peak:
+
+$$
+y(t)=e^{-t}\left\lbrack(\tau-2)e^\tau\right\rbrack_1^2
+=e^{-t}\bigl[0-(-e)\bigr]=e^{1-t}.
+$$
+
+**3. Put the branches together.**
+
+$$
+\boxed{y(t)=
+\begin{cases}
+e^{t-1}-2e^{t-2},&t\lt 1,\cr
+2t-2+e^{1-t}-2e^{t-2},&1\le t\lt 2,\cr
+e^{1-t},&t\ge 2.
+\end{cases}}
+$$
+
+**Check:** The adjacent formulas agree at $t=1$ and $t=2$, giving $1-2/e$ and $1/e$. The output has tails outside $[1,2]$: $h$ limits the integration variable, but the exponential $x$ extends in both time directions.
 
 **References:** slides pp. 126–130; textbook Ch. 4 and 9, convolution sections.
 
@@ -133,6 +206,8 @@ An input can be viewed as a weighted collection of shifted impulses. In DT the d
 Find $h$ by sending $\delta$ into the system. The **step response** is the output for input $u$, so for an LTI system it is $u\ast h$. Neither is the output for an arbitrary $x$ unless that is the specified input.
 
 **Check 2B.** If an LTI system gives $h(t)$ for a unit impulse, what is the response to $2\delta(t-3)$? [Answer](#check-2b)
+
+**Practice:** [T5, 9.12(b): find a DT impulse response](./tutorial5materials.md#912b-problem).
 
 **References:** slides pp. 123–126, 132–134; textbook Ch. 4 and 9, LTI characterization.
 
@@ -149,7 +224,7 @@ When the defining integral or sum for the eigenvalue converges, $e^{st}$ through
 
 **Check 2C.** Is $h(n)=\delta(n-1)$ causal and stable? Is it memoryless? [Answer](#check-2c)
 
-**Practice:** [Assignment 3B, 4.13(b)](#practice-413b) starts with a cascade and uses the equivalent impulse response to obtain the output.
+**Practice:** [Assignment 3B, 4.13(b)](#practice-413b) starts with a cascade and uses the equivalent impulse response to obtain the output. See also [T5, 4.12: compare series and parallel interconnections](./tutorial5materials.md#412-problem).
 
 **References:** slides pp. 134–142; textbook Ch. 4 and 9, LTI interconnections, properties and eigenfunctions.
 
@@ -183,6 +258,8 @@ In DT, increasing $k$ by $N$ changes the exponential by a factor $e^{j2\pi n}=1$
 
 **Check 3A.** If $a_2=3j$ for a real CT signal, is the coefficient at $-2$ also $3j$? [Answer](#check-3a)
 
+**Practice:** [T6, 5.103(a): compute CTFS coefficients from a graph](./tutorial6materials.md#5103a-problem); [T6, 10.8(b): find the DT magnitude and phase spectra](./tutorial6materials.md#108b-problem).
+
 **References:** slides pp. 146–155 and 163–171; textbook §§5.2–5.3, 5.5–5.6, 10.2–10.3, 10.5 and 10.7.
 
 ### 3.2 Why are the DTFS and DFT not the same array?
@@ -205,7 +282,7 @@ This relation assumes the same origin. Moving the start of the period to a diffe
 
 **Check 3B.** An eight-sample vector represents one aligned period of a DT signal. If its DFT gives $X_{\mathrm{DFT}}(7)=8j$, what is $a_{-1}$? [Answer](#check-3b)
 
-**Practice:** [10.11(b), DTFS to DFT](#practice-1011b).
+**Practice:** [10.11(b), DTFS to DFT](#practice-1011b). Compare [T6, 10.11(d): DTFS–DFT indexing and scaling](./tutorial6materials.md#1011d-problem).
 
 **References:** slides pp. 157–161 and 168–171; textbook §§10.6–10.7; MATLAB's `fft` uses the no-$1/N$ forward convention here.
 
@@ -259,11 +336,13 @@ Use $\xi$ for time or the sample index and $\nu$ for the matching angular freque
 | Multiply: $x_1(\xi)x_2(\xi)$ | Convolve the spectra and multiply by $1/(2\pi)$; in DT the convolution is periodic over $2\pi$. |
 | Weight by time/index: $\xi x(\xi)$ | Differentiate the spectrum: $j\thinspace dX/d\nu$. |
 
-In DT, the shift $d$ is an integer and frequency shifts wrap around in a $2\pi$ interval. **Do not use CT dilation as a DT rule.** In CT, for real $a\ne0$, $x(at)$ gives $X(\omega/a)/\lvert a\rvert$. CTFT duality gives $X(t)\leftrightarrow 2\pi x(-\omega)$; note both the reversal and the factor. CT time-domain differentiation gives $j\omega X(\omega)$, which is different from differentiating $X$ with respect to frequency. Under the conditions of the course's integration rule, a CT running integral from $-\infty$ has a generalized transform with both the $X(\omega)/(j\omega)$ term and the DC term $\pi X(0)\delta(\omega)$. Do not treat it as ordinary pointwise division at DC.
+In DT, the shift $d$ is an integer and frequency shifts wrap around in a $2\pi$ interval. **Do not use CT dilation as a DT rule.** In CT, for real $a\ne0$, $x(at)$ gives $X(\omega/a)/\lvert a\rvert$. CTFT duality gives $X(t)\leftrightarrow 2\pi x(-\omega)$; note both the reversal and the factor. CT time-domain differentiation gives $j\omega X(\omega)$, which is different from differentiating $X$ with respect to frequency. For CT running integration from $-\infty$, keep both terms of the generalized transform: $X(\omega)/(j\omega)$ and the DC impulse $\pi X(0)\delta(\omega)$. Do not treat it as ordinary pointwise division at DC.
 
 **Check with structure.** Even/odd symmetry is preserved; a real input gives conjugate symmetry, and a conjugate-symmetric input gives a real transform. For a real input, magnitude is even and phase is odd modulo $2\pi$ wherever the spectrum is nonzero. A real even input gives a real even transform, while a real odd input gives a purely imaginary odd transform. For finite-energy signals, Parseval's relation equates time-domain energy with $1/(2\pi)$ times the integral of $\lvert X\rvert^2$: integrate over the whole real frequency line for CT or over one $2\pi$ period for DT. This is a check on scaling, not a method for reading phase.
 
 **Check 4B.** Suppose $v(t)=e^{j\omega_c t}x(t-2)$. Do we get $e^{-j2\omega}X(\omega-\omega_c)$? [Answer](#check-4b)
+
+**Practice:** [T7, 6.20(a): track frequency shifts under sine and cosine modulation](./tutorial7materials.md#620a-problem).
 
 **References:** slides pp. 187–210 and 215–216; textbook §§6.7 and 11.7 for pairs and properties.
 
@@ -285,6 +364,8 @@ A lowpass of gain two restores the baseband if the shifted copies are separated 
 
 **Check 4C.** An LTI system is a pure delay by two samples. Can you detect it by plotting the input and output magnitudes only? [Answer](#check-4c)
 
+**Practice:** [T7, 6.116(c): get a CT frequency response from an equation](./tutorial7materials.md#6116c-problem); [T7, 6.20(a): follow a signal through an AM receiver](./tutorial7materials.md#620a-problem).
+
 **References:** slides pp. 173–175, 229–239 and 241–267; textbook §§5.7, 6.13–6.16, 6.19, 10.8 and 11.13–11.16.
 
 ### 4.4 What is being sampled: a spectrum or a waveform?
@@ -305,7 +386,7 @@ $$
 
 Each replica comes from one harmonic of the sampling impulse train: its Fourier series coefficients are all $1/T_s$, and the harmonics are spaced by $\omega_s$. Where replicas overlap, their values **add**; this is aliasing. When the replicas do not overlap, ideal lowpass reconstruction isolates the central copy and compensates for its scale with passband gain $T_s$ (equivalently, sinc interpolation).
 
-**Background: comparing the two spectra.** $S(\omega)$ is the CTFT of the weighted impulse train, not the DTFT $Y(\Omega)$ of the sample sequence. Their frequency axes satisfy $S(\omega)=Y(\omega T_s)$; this follows by substituting the weighted impulses into the CTFT. See slide p. 284 and textbook §11.18.
+**Impulse-train spectrum and sample-sequence spectrum.** $S(\omega)$ is the CTFT of the weighted impulse train, not the DTFT $Y(\Omega)$ of the sample sequence. Their frequency axes satisfy $S(\omega)=Y(\omega T_s)$; this follows by substituting the weighted impulses into the CTFT. See slide p. 284 and textbook §11.18.
 
 **How to check a sampling problem.** Draw the original support, mark its shifted copies, then mark what the reconstruction filter passes. Keep Hz and rad/s consistent on that axis. If the input is bandlimited to $\lvert f\rvert\le B$, $f_s\gt 2B$ is sufficient for perfect ideal reconstruction. Here $B$ is the largest occupied absolute frequency in Hz, not an arbitrary passband width. The **Nyquist rate** is $2B$ for this signal, and the **Nyquist frequency** is $f_s/2$ for this sampler. Do not treat equality as an unconditional guarantee; check the spectra at the boundary. If you must prevent overlap, an analog anti-alias filter goes **before** sampling; a lowpass after sampling cannot undo energy that has already folded into the kept band.
 
@@ -343,7 +424,7 @@ An inverse unilateral transform only recovers the part on its one-sided domain. 
 
 **Check 5A.** For the causal unit step $u(t)$, both the ULT and BLT give $1/s$, with ROC $\mathrm{Re}(s)\gt 0$. Can you obtain its ordinary CTFT by substituting $s=j\omega$? [Answer](#check-5a)
 
-**Optional textbook background: why a bilateral inverse also needs the ROC.** Look at these two sequences for real $a$ with $0\lt a\lt 1$:
+**Why a bilateral inverse also needs the ROC.** Look at these two sequences for real $a$ with $0\lt a\lt 1$:
 
 | DT sequence | Bilateral Z transform | ROC |
 | --- | --- | --- |
@@ -351,6 +432,8 @@ An inverse unilateral transform only recovers the part on its one-sided domain. 
 | $-a^n u(-n-1)$ | $1/(1-az^{-1})$ | Inside the circle of radius $a$ |
 
 The expressions match, but one series is summed over nonnegative indices and the other over negative indices. Their ROCs differ, so the algebra alone does not determine the bilateral inverse. In CT, right- and left-sided exponentials likewise converge on opposite sides of a vertical line. See textbook §§7.7 and 12.7.
+
+**Practice:** [T5, 9.20(b): use the ROC when evaluating a system function on exponential inputs](./tutorial5materials.md#920b-problem).
 
 **References:** textbook §§7.3–7.7, 12.3–12.7, 7.17 and 12.16; slides pp. 292–311.
 
@@ -374,10 +457,10 @@ When using tables, first put the signal in a form that matches a known pair. For
 | --- | --- |
 | Linearity | Transform the pieces and take the same linear combination; recheck the ROC if terms cancel. |
 | Causal delay | A delay by $t_0\ge 0$ gives $e^{-st_0}$ in CT; a delay by $m\ge 0$ integer samples gives $z^{-m}$ in DT. These simple unilateral rules assume a causal source. |
-| Convolution of causal signals | Multiply the unilateral transforms under the usual convergence assumptions. |
+| Convolution of causal signals | Multiply the unilateral transforms. |
 | Shifting or rescaling the transform argument | Multiplying by $e^{at}$ replaces $s$ with $s-a$; multiplying by $b^n$ for $b\ne 0$ replaces $z$ with $z/b$. Positive CT time scaling by $a$ gives $X(s/a)/a$. |
-| Time multiplying the signal | Within the domain where termwise differentiation is valid, $t x(t)$ gives $-dX/ds$ and $n x(n)$ gives $-z\thinspace dX/dz$; use the same transform convention throughout. |
-| CT time differentiation/integration | Differentiation gives $sX(s)-x(0^-)$ for the first derivative. A causal running integral from zero gives $X(s)/s$ where convergent. |
+| Time multiplying the signal | $t x(t)$ gives $-dX/ds$ and $n x(n)$ gives $-z\thinspace dX/dz$; use the same transform convention throughout. |
+| CT time differentiation/integration | Differentiation gives $sX(s)-x(0^-)$ for the first derivative. A causal running integral from zero gives $X(s)/s$. |
 
 For an **inverse**, the course's partial-fraction procedure works with a proper rational transform: after removing any specified delay factor, the numerator degree does not exceed the denominator degree (in $s$ or $z$). Use this order:
 
@@ -388,7 +471,47 @@ For an **inverse**, the course's partial-fraction procedure works with a proper 
 
 **Check 5B.** For $a=1/2$, where does the sequence corresponding to $1/(z-a)$ start, and what is its first nonzero sample? [Answer](#check-5b)
 
-**Practice:** [7.31(b), repeated-pole inversion](#practice-731b).
+**Practice:** [7.31(b), repeated-pole inversion](#practice-731b). If you need to review how to identify repeated poles first, see [T1, A.13(e): zeros, poles, and their orders](./tutorial1materials.md#a13e-zeros-and-poles).
+
+#### Worked example: inverse unilateral Z transform
+
+**Assignment 6A, 12.18(d) (textbook p. 646).** Find the inverse unilateral Z transform of
+
+$$
+X(z)=\frac{2z^2+2z-\frac19}{(z-\frac16)(z+\frac23)},
+\qquad \lvert z\rvert\gt\frac23.
+$$
+
+**1. Divide by $z$ and set up the partial fractions.** The numerator and denominator of $X$ have the same degree; $X(z)/z$ is strictly proper. Include the pole at zero of this *intermediate* expression:
+
+$$
+\frac{X(z)}{z}=\frac{A}{z}+\frac{B}{z-\frac16}+\frac{C}{z+\frac23}.
+$$
+
+**2. Clear denominators and solve for one coefficient at a time.**
+
+$$
+2z^2+2z-\frac19
+=A(z-\tfrac16)(z+\tfrac23)+Bz(z+\tfrac23)+Cz(z-\tfrac16).
+$$
+
+- At $z=0$: $-1/9=A(-1/6)(2/3)=-A/9$, so $A=1$.
+- At $z=1/6$: $5/18=B(1/6)(5/6)=5B/36$, so $B=2$.
+- At $z=-2/3$: $-5/9=C(-2/3)(-5/6)=5C/9$, so $C=-1$.
+
+**3. Multiply back by $z$, then use the transform pairs.**
+
+$$
+X(z)=1+\frac{2z}{z-\frac16}-\frac{z}{z+\frac23}.
+$$
+
+The constant $1$ comes from the intermediate $1/z$ term and gives $\delta(n)$, **not** $u(n)$. The other terms match $z/(z-a)\longleftrightarrow a^n u(n)$. Read $a=-2/3$ in the last term, since the denominator there is $z-(-2/3)$:
+
+$$
+\boxed{x(n)=\delta(n)+\bigl[2(1/6)^n-(-2/3)^n\bigr]u(n).}
+$$
+
+**Check:** At $n=0$, the impulse contributes $1$ and the exponentials contribute $2-1$, so $x(0)=2$. The original $X(z)$ also tends to $2$ as $z$ tends to infinity, which is the constant term of its expansion in powers of $z^{-1}$. The exponential bases have magnitudes $1/6$ and $2/3$, consistent with the given ROC.
 
 **References:** textbook §§7.10, 7.17, 12.10 and 12.16, and Appendix B (pp. 673–677); slides pp. 312–342 and 385–394 for partial-fraction techniques.
 
@@ -411,15 +534,15 @@ Causality and stability answer different questions:
 
 **Check 5C.** A causal rational DT system has one actual pole at $z=1$. Its other poles are inside the unit circle. Is it BIBO stable? [Answer](#check-5c)
 
-**Practice:** [12.19(b), block diagram and stability](#practice-1219b).
+**Practice:** [12.19(b), block diagram and stability](#practice-1219b). For the earlier Fourier-domain method, see [T7, 11.17(a): turn a DT frequency response into a difference equation](./tutorial7materials.md#1117a-problem).
 
 **References:** textbook §§7.11–7.14, 7.18, 12.11–12.14 and 12.17; slides pp. 344–354.
 
 ### 5.4 Feedback and MATLAB applications
 
-Use this as a course-end connection if feedback has been covered in lecture. In a negative-feedback loop with forward block $G$ and feedback block $F$, the forward input is $X-FY$, so $Y=G(X-FY)$. Solve this equation to get $H_{\mathrm{closed}}=G/(1+GF)$ and then analyze the **closed-loop** system. The feedback sign comes from the summing junction. Stable individual blocks do not, by themselves, prove closed-loop stability.
+In a negative-feedback loop with forward block $G$ and feedback block $F$, the forward input is $X-FY$, so $Y=G(X-FY)$. Solve this equation to get $H_{\mathrm{closed}}=G/(1+GF)$ and then analyze the **closed-loop** system. The feedback sign comes from the summing junction. Stable individual blocks do not, by themselves, prove closed-loop stability.
 
-**MATLAB reference for self-study.** Use element-wise operators such as `.*`, `./` and `.^` when a formula acts independently on each array entry. Use `freqs` for CT frequency responses in rad/s and `freqz` for DT responses (check the units returned by the calling form). In a MATLAB filter-design interface that normalizes Nyquist to $1$, use $f/(f_s/2)$ for a target in Hz; this is not a rad/sample value. Symbolic `laplace` / `ilaplace` and `ztrans` / `iztrans` can check a table calculation. Confirm the assumed time/index origin instead of treating symbolic output as a substitute for a derivation. Pole and step-response plots help you compare systems; a finite plot does not replace a stability argument. This is a reference, not a claim about the MATLAB scope of the final.
+**MATLAB reference for self-study.** Use element-wise operators such as `.*`, `./` and `.^` when a formula acts independently on each array entry. Use `freqs` for CT frequency responses in rad/s and `freqz` for DT responses (check the units returned by the calling form). In a MATLAB filter-design interface that normalizes Nyquist to $1$, use $f/(f_s/2)$ for a target in Hz; this is not a rad/sample value. Symbolic `laplace` / `ilaplace` and `ztrans` / `iztrans` can check a table calculation. Confirm the assumed time/index origin instead of treating symbolic output as a substitute for a derivation. Pole and step-response plots help you compare systems; a finite plot does not replace a stability argument.
 
 **References:** textbook §§7.16, 12.15, D.7 and D.15, including §D.15.2.1 (p. 720); slides pp. 355–358; [lecture schedule](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/lecture_schedule/) for the course-end feedback topic.
 
@@ -491,7 +614,7 @@ No. Causality requires the ROC to extend strictly outside the outermost pole. Be
 
 ## Assignment practice
 
-These are references to the original assigned subparts in Michael D. Adams, *Signals and Systems*, 7.0.0-beta.3. The descriptions below are paraphrases; consult the textbook for the original wording. Try each question, use its first-step hint if needed, and then follow the link to the worked solution.
+Try each question. If you get stuck, use the first-step hint before opening the worked solution. Textbook pages are listed with each question.
 
 ### Practice 3.17(c)
 
@@ -720,10 +843,10 @@ Start from the object you are given and the information you need. More than one 
 | Poles or a rational system function | [Establish causality and the applicable ROC](#5-laplace-and-z-transforms); check the axis or unit circle. | The strict left-half-plane / unit-circle pole rule needs the right system assumptions. |
 | A sampling or anti-aliasing question | [Identify what is being sampled](#4-fourier-transforms-and-applications), then mark spectral supports and copy spacing. | A digital filter cannot separate components already aliased to the same frequency. |
 
-**Before you stop:** Show the method the question asks for, use defined variables and units, and include the assumption that makes the method valid. A boxed final expression is not a substitute for the steps that justify it.
+**Before you stop:** Show your steps, define your variables and units, and state the assumptions your method uses.
 
 ## Course references
 
-- Michael D. Adams, *Signals and Systems* and *Lecture Slides for Signals and Systems (Unified Continuous-Time/Discrete-Time Coverage)*, Edition 7.0.0-beta.3. Page numbers in the modules are printed numbers, not PDF viewer positions.
+- Michael D. Adams, *Signals and Systems* and *Lecture Slides for Signals and Systems (Unified Continuous-Time/Discrete-Time Coverage)*, Edition 7.0.0-beta.3. Page references use printed page numbers.
 - [ECE265 course page](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/) for assignment handouts, posted solutions, course updates and official exam information.
-- [Lecture schedule](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/lecture_schedule/), [Midterm 1 study guide](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/midterm_exams/midterm_exam_1_study_guide.md) and [Midterm 2 study guide](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/midterm_exams/midterm_exam_2_study_guide.md) for topic cross-references. Midterm scope and rules do not establish final scope or rules.
+- [Lecture schedule](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/lecture_schedule/), [Midterm 1 study guide](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/midterm_exams/midterm_exam_1_study_guide.md) and [Midterm 2 study guide](https://www.ece.uvic.ca/~frodo/courses/ece265-2026-09/midterm_exams/midterm_exam_2_study_guide.md) for topic cross-references.
