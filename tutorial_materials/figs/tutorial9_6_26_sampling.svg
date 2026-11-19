@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="490" viewBox="0 0 1000 490" role="img" aria-labelledby="title desc">
+  <title id="title">Assignment 5B, Exercise 6.26: spectra after sampling and reconstruction</title>
+  <desc id="desc">In part b, sampled replicas form triangles of normalized height one at even integers, and reconstruction keeps the triangle centered at zero. In part c, the scaled sampled spectrum is flat at one and reconstruction retains a unit pulse from minus one inclusive to one exclusive.</desc>
+  <style>
+    text { font-family: system-ui, sans-serif; fill: #172635; }
+    .title { font-size: 20px; font-weight: 700; }
+    .subtitle { font-size: 15px; fill: #43576b; }
+    .tick { font-size: 14px; }
+    .axislabel { font-size: 14px; fill: #43576b; }
+    .axis { stroke: #7d8b9a; stroke-width: 1; fill: none; }
+    .guide { stroke: #c9d4df; stroke-dasharray: 4 4; fill: none; }
+  </style>
+  <rect x="0" y="0" width="1000" height="490" rx="14" fill="#fff" />
+  <rect x="17" y="14" width="473" height="218" rx="10" fill="#f8fafc" stroke="#dce6ef" />
+  <rect x="510" y="14" width="473" height="218" rx="10" fill="#f8fafc" stroke="#dce6ef" />
+  <rect x="17" y="256" width="473" height="218" rx="10" fill="#f8fafc" stroke="#dce6ef" />
+  <rect x="510" y="256" width="473" height="218" rx="10" fill="#f8fafc" stroke="#dce6ef" />
+  <g>
+  <text x="32" y="47" class="title">(b) Sampled spectrum S / 1000</text>
+  <text x="32" y="69" class="subtitle">Narrow copies meet only at zero</text>
+  <path d="M 69 106 H 479" class="guide" />
+  <path d="M 69 186 H 479 M 274 189 V 93" class="axis" />
+  <path d="M 69 186 v 5" class="axis" /><text x="69" y="208" class="tick" text-anchor="middle">−5</text>
+  <path d="M 110 186 v 5" class="axis" /><text x="110" y="208" class="tick" text-anchor="middle">−4</text>
+  <path d="M 151 186 v 5" class="axis" /><text x="151" y="208" class="tick" text-anchor="middle">−3</text>
+  <path d="M 192 186 v 5" class="axis" /><text x="192" y="208" class="tick" text-anchor="middle">−2</text>
+  <path d="M 233 186 v 5" class="axis" /><text x="233" y="208" class="tick" text-anchor="middle">−1</text>
+  <path d="M 274 186 v 5" class="axis" /><text x="274" y="208" class="tick" text-anchor="middle">0</text>
+  <path d="M 315 186 v 5" class="axis" /><text x="315" y="208" class="tick" text-anchor="middle">1</text>
+  <path d="M 356 186 v 5" class="axis" /><text x="356" y="208" class="tick" text-anchor="middle">2</text>
+  <path d="M 397 186 v 5" class="axis" /><text x="397" y="208" class="tick" text-anchor="middle">3</text>
+  <path d="M 438 186 v 5" class="axis" /><text x="438" y="208" class="tick" text-anchor="middle">4</text>
+  <path d="M 479 186 v 5" class="axis" /><text x="479" y="208" class="tick" text-anchor="middle">5</text>
+  <text x="60" y="111" class="tick" text-anchor="end">1</text>
+  <text x="60" y="191" class="tick" text-anchor="end">0</text>
+  <text x="479" y="229" class="axislabel" text-anchor="end">v = ω / (1000π)</text>
+  <path d="M 69 186 L 110 106 L 151 186 L 192 106 L 233 186 L 274 106 L 315 186 L 356 106 L 397 186 L 438 106 L 479 186" fill="none" stroke="#235db8" stroke-width="3.6" stroke-linejoin="round" />
+  </g>
+  <g>
+  <text x="525" y="47" class="title">(b) Reconstructed spectrum Y</text>
+  <text x="525" y="69" class="subtitle">The original triangle is recovered</text>
+  <path d="M 562 106 H 972" class="guide" />
+  <path d="M 562 186 H 972 M 767 189 V 93" class="axis" />
+  <path d="M 562 186 v 5" class="axis" /><text x="562" y="208" class="tick" text-anchor="middle">−5</text>
+  <path d="M 603 186 v 5" class="axis" /><text x="603" y="208" class="tick" text-anchor="middle">−4</text>
+  <path d="M 644 186 v 5" class="axis" /><text x="644" y="208" class="tick" text-anchor="middle">−3</text>
+  <path d="M 685 186 v 5" class="axis" /><text x="685" y="208" class="tick" text-anchor="middle">−2</text>
+  <path d="M 726 186 v 5" class="axis" /><text x="726" y="208" class="tick" text-anchor="middle">−1</text>
+  <path d="M 767 186 v 5" class="axis" /><text x="767" y="208" class="tick" text-anchor="middle">0</text>
+  <path d="M 808 186 v 5" class="axis" /><text x="808" y="208" class="tick" text-anchor="middle">1</text>
+  <path d="M 849 186 v 5" class="axis" /><text x="849" y="208" class="tick" text-anchor="middle">2</text>
+  <path d="M 890 186 v 5" class="axis" /><text x="890" y="208" class="tick" text-anchor="middle">3</text>
+  <path d="M 931 186 v 5" class="axis" /><text x="931" y="208" class="tick" text-anchor="middle">4</text>
+  <path d="M 972 186 v 5" class="axis" /><text x="972" y="208" class="tick" text-anchor="middle">5</text>
+  <text x="553" y="111" class="tick" text-anchor="end">1</text>
+  <text x="553" y="191" class="tick" text-anchor="end">0</text>
+  <text x="972" y="229" class="axislabel" text-anchor="end">v = ω / (1000π)</text>
+  <path d="M 562 186 H 726 L 767 106 L 808 186 H 972" fill="none" stroke="#0e7768" stroke-width="3.6" stroke-linejoin="round" />
+  </g>
+  <g>
+  <text x="32" y="289" class="title">(c) Sampled spectrum S / 1000</text>
+  <text x="32" y="311" class="subtitle">Wide overlapping copies add to one</text>
+  <path d="M 69 348 H 479" class="guide" />
+  <path d="M 69 428 H 479 M 274 431 V 335" class="axis" />
+  <path d="M 69 428 v 5" class="axis" /><text x="69" y="450" class="tick" text-anchor="middle">−5</text>
+  <path d="M 110 428 v 5" class="axis" /><text x="110" y="450" class="tick" text-anchor="middle">−4</text>
+  <path d="M 151 428 v 5" class="axis" /><text x="151" y="450" class="tick" text-anchor="middle">−3</text>
+  <path d="M 192 428 v 5" class="axis" /><text x="192" y="450" class="tick" text-anchor="middle">−2</text>
+  <path d="M 233 428 v 5" class="axis" /><text x="233" y="450" class="tick" text-anchor="middle">−1</text>
+  <path d="M 274 428 v 5" class="axis" /><text x="274" y="450" class="tick" text-anchor="middle">0</text>
+  <path d="M 315 428 v 5" class="axis" /><text x="315" y="450" class="tick" text-anchor="middle">1</text>
+  <path d="M 356 428 v 5" class="axis" /><text x="356" y="450" class="tick" text-anchor="middle">2</text>
+  <path d="M 397 428 v 5" class="axis" /><text x="397" y="450" class="tick" text-anchor="middle">3</text>
+  <path d="M 438 428 v 5" class="axis" /><text x="438" y="450" class="tick" text-anchor="middle">4</text>
+  <path d="M 479 428 v 5" class="axis" /><text x="479" y="450" class="tick" text-anchor="middle">5</text>
+  <text x="60" y="353" class="tick" text-anchor="end">1</text>
+  <text x="60" y="433" class="tick" text-anchor="end">0</text>
+  <text x="479" y="471" class="axislabel" text-anchor="end">v = ω / (1000π)</text>
+  <path d="M 69 348 H 479" fill="none" stroke="#235db8" stroke-width="3.6" stroke-linejoin="round" />
+  </g>
+  <g>
+  <text x="525" y="289" class="title">(c) Reconstructed spectrum Y</text>
+  <text x="525" y="311" class="subtitle">A rectangle, not the original triangle</text>
+  <path d="M 562 348 H 972" class="guide" />
+  <path d="M 562 428 H 972 M 767 431 V 335" class="axis" />
+  <path d="M 562 428 v 5" class="axis" /><text x="562" y="450" class="tick" text-anchor="middle">−5</text>
+  <path d="M 603 428 v 5" class="axis" /><text x="603" y="450" class="tick" text-anchor="middle">−4</text>
+  <path d="M 644 428 v 5" class="axis" /><text x="644" y="450" class="tick" text-anchor="middle">−3</text>
+  <path d="M 685 428 v 5" class="axis" /><text x="685" y="450" class="tick" text-anchor="middle">−2</text>
+  <path d="M 726 428 v 5" class="axis" /><text x="726" y="450" class="tick" text-anchor="middle">−1</text>
+  <path d="M 767 428 v 5" class="axis" /><text x="767" y="450" class="tick" text-anchor="middle">0</text>
+  <path d="M 808 428 v 5" class="axis" /><text x="808" y="450" class="tick" text-anchor="middle">1</text>
+  <path d="M 849 428 v 5" class="axis" /><text x="849" y="450" class="tick" text-anchor="middle">2</text>
+  <path d="M 890 428 v 5" class="axis" /><text x="890" y="450" class="tick" text-anchor="middle">3</text>
+  <path d="M 931 428 v 5" class="axis" /><text x="931" y="450" class="tick" text-anchor="middle">4</text>
+  <path d="M 972 428 v 5" class="axis" /><text x="972" y="450" class="tick" text-anchor="middle">5</text>
+  <text x="553" y="353" class="tick" text-anchor="end">1</text>
+  <text x="553" y="433" class="tick" text-anchor="end">0</text>
+  <text x="972" y="471" class="axislabel" text-anchor="end">v = ω / (1000π)</text>
+  <path d="M 562 428 H 726 M 726 348 H 808 M 808 428 H 972" fill="none" stroke="#0e7768" stroke-width="3.6" stroke-linejoin="round" />
+  <circle cx="726" cy="428" r="4.6" fill="#fff" stroke="#0e7768" stroke-width="2" />
+  <circle cx="726" cy="348" r="4.6" fill="#0e7768" stroke="#0e7768" stroke-width="2" />
+  <circle cx="808" cy="348" r="4.6" fill="#fff" stroke="#0e7768" stroke-width="2" />
+  <circle cx="808" cy="428" r="4.6" fill="#0e7768" stroke="#0e7768" stroke-width="2" />
+  </g>
+</svg>
